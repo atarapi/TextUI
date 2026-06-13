@@ -35,13 +35,9 @@
 
 ## 使い方
 
-ブラウザで `index.html` を開くか、ローカルサーバーを起動してアクセスしてください。
+公開ページからアクセスしてください。
 
-```bash
-python3 -m http.server 8080
-```
-
-http://localhost:8080
+https://atarapi.github.io/TextUI/
 
 ---
 
