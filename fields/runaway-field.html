@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Runaway Field — TextUI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/runaway-field.css" />
+</head>
+<body class="field-page field-page--light">
+  <main class="runaway-page">
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      一覧に戻る
+    </a>
+
+    <header class="runaway-header">
+      <h1>Runaway Field</h1>
+      <p class="hint">打っているうちに、文字ごとにランダムなタイミングで足が生える</p>
+    </header>
+
+    <div class="runaway-field" id="runawayField">
+      <div class="runaway-toolbar">
+        <button type="button" class="runaway-toolbar__btn" id="runawayFight">戦う</button>
+        <button type="button" class="runaway-toolbar__btn" id="runawayAlign">整列</button>
+        <button type="button" class="runaway-toolbar__btn" id="runawayClear">クリア</button>
+      </div>
+      <div class="runaway-wrap" id="runawayWrap">
+        <div class="runaway-layer" id="runawayLayer" aria-hidden="true"></div>
+        <span class="runaway-caret" id="runawayCaret" aria-hidden="true"></span>
+        <textarea
+          class="runaway-input"
+          id="runawayInput"
+          placeholder="ここに打つと、文字が逃げ出す…"
+          spellcheck="false"
+          rows="10"
+        ></textarea>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/runaway-field.js"></script>
+</body>
+</html>

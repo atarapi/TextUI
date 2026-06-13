@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stroke Field — TextUI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/stroke-field.css" />
+</head>
+<body class="field-page field-page--light">
+  <main class="stroke-page">
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      一覧に戻る
+    </a>
+
+    <header class="stroke-header">
+      <h1>Stroke Field</h1>
+      <p class="hint">区画の多い文字は傾きながら沈み、区画の少ない文字はふわふわと浮く</p>
+    </header>
+
+    <div class="stroke-field">
+      <button type="button" class="stroke-clear" id="strokeClear">クリア</button>
+      <div class="stroke-wrap">
+        <div class="stroke-display" id="strokeDisplay" aria-hidden="true"></div>
+        <textarea
+          class="stroke-input"
+          id="strokeInput"
+          placeholder="一・木・森・鬱… 試してみてください"
+          spellcheck="false"
+          rows="8"
+        ></textarea>
+      </div>
+      <p class="stroke-baseline">── ベースライン</p>
+    </div>
+  </main>
+
+  <script src="../js/stroke-counts.js"></script>
+  <script src="../js/stroke-field.js"></script>
+</body>
+</html>

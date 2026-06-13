@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage Text — TextUI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/stage-text.css" />
+</head>
+<body class="field-page field-page--light">
+  <main class="page">
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      一覧に戻る
+    </a>
+
+    <header class="page-header">
+      <h1>Stage Text</h1>
+      <p class="hint">「海」「夜」「カフェ」「怒り」… 言葉が背景の小さな舞台になる</p>
+    </header>
+
+    <div class="stage-field" id="stageField">
+      <div class="stage stage--base" aria-hidden="true"></div>
+      <div class="stage stage--sea" data-scene="sea" aria-hidden="true">
+        <div class="waves">
+          <div class="wave wave--1"></div>
+          <div class="wave wave--2"></div>
+          <div class="wave wave--3"></div>
+        </div>
+      </div>
+      <div class="stage stage--night" data-scene="night" aria-hidden="true">
+        <div class="stars" id="stars"></div>
+      </div>
+      <div class="stage stage--cafe" data-scene="cafe" aria-hidden="true">
+        <div class="steam">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="stage stage--anger" data-scene="anger" aria-hidden="true"></div>
+      <div class="stage stage--rain" data-scene="rain" aria-hidden="true">
+        <div class="raindrops" id="raindrops"></div>
+      </div>
+      <div class="stage stage--forest" data-scene="forest" aria-hidden="true">
+        <div class="fireflies" id="fireflies"></div>
+      </div>
+      <div class="stage stage--snow" data-scene="snow" aria-hidden="true">
+        <div class="snowflakes" id="snowflakes"></div>
+      </div>
+
+      <textarea
+        class="stage-input"
+        id="stageInput"
+        placeholder="ここに物語を書いてみてください…"
+        spellcheck="false"
+        rows="6"
+      ></textarea>
+
+      <div class="scene-badge" id="sceneBadge" aria-live="polite"></div>
+    </div>
+
+    <footer class="page-footer">
+      <span class="keyword-chip">海</span>
+      <span class="keyword-chip">夜</span>
+      <span class="keyword-chip">カフェ</span>
+      <span class="keyword-chip">怒り</span>
+      <span class="keyword-chip">雨</span>
+      <span class="keyword-chip">森</span>
+      <span class="keyword-chip">雪</span>
+    </footer>
+  </main>
+
+  <script src="../js/stage-text.js"></script>
+</body>
+</html>

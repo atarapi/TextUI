@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squish Field — TextUI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/squish-field.css" />
+</head>
+<body class="field-page field-page--light">
+  <main class="squish-page">
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      一覧に戻る
+    </a>
+
+    <header class="squish-header">
+      <h1>Squish Field</h1>
+      <p class="hint">打った文字も立体になってフィールドの上に乗り、まとめてふにゃふにゃ変形する</p>
+    </header>
+
+    <div class="squish-stage" id="squishStage">
+      <canvas class="squish-canvas" id="squishCanvas" aria-hidden="true"></canvas>
+      <div class="squish-overlay">
+        <textarea
+          class="squish-input"
+          id="squishInput"
+          placeholder="押して、打って、つついてみて…"
+          spellcheck="false"
+          rows="8"
+        ></textarea>
+      </div>
+    </div>
+  </main>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="../js/squish-field.js"></script>
+</body>
+</html>

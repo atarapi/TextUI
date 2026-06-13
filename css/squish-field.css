@@ -1,0 +1,101 @@
+:root {
+  --squish-bg: #eceaf4;
+  --squish-ink: #1a1a1e;
+  --squish-muted: #8a8a90;
+  --squish-accent: #9b8fd4;
+}
+
+.field-page--light {
+  background: var(--squish-bg);
+  color: var(--squish-ink);
+}
+
+.squish-page {
+  min-height: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.squish-page .back-link {
+  align-self: flex-start;
+  color: var(--squish-muted);
+}
+
+.squish-page .back-link:hover {
+  color: var(--squish-ink);
+}
+
+.squish-header {
+  text-align: center;
+}
+
+.squish-header h1 {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--squish-muted);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.squish-header .hint {
+  font-size: 0.8rem;
+  color: var(--squish-muted);
+}
+
+.squish-stage {
+  position: relative;
+  width: min(640px, 100%);
+  height: min(380px, 62vh);
+  min-height: 280px;
+}
+
+.squish-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.squish-overlay {
+  position: absolute;
+  inset: 12% 10% 14%;
+  display: flex;
+  pointer-events: none;
+}
+
+.squish-input {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  pointer-events: auto;
+  font-family: 'IBM Plex Mono', 'Noto Sans JP', monospace;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: transparent;
+  caret-color: var(--squish-accent);
+}
+
+.squish-input::placeholder {
+  color: rgba(26, 26, 30, 0.32);
+}
+
+.squish-input::selection {
+  background: rgba(155, 143, 212, 0.28);
+}
+
+.squish-stage.is-focused .squish-input::placeholder {
+  color: rgba(26, 26, 30, 0.2);
+}

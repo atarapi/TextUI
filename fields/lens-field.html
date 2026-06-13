@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lens Field — TextUI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/lens-field.css" />
+</head>
+<body class="field-page lens-page">
+  <div class="lens-wall" id="lensWall" aria-hidden="true"></div>
+
+  <div class="lens-spotlight" id="lensSpotlight" aria-hidden="true">
+    <div class="lens-spotlight__beam"></div>
+    <div class="lens-spotlight__ring"></div>
+    <div class="lens-spotlight__core"></div>
+  </div>
+
+  <main class="lens-ui">
+    <a href="../index.html" class="back-link lens-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      一覧に戻る
+    </a>
+
+    <header class="lens-header">
+      <h1>Lens Field</h1>
+      <p class="hint">打った文字はすぐ下に表示。レンズが壁から探して、紙へ焼き付ける</p>
+    </header>
+
+    <aside class="lens-paper" id="lensPaper">
+      <div class="lens-paper__head">
+        <span class="lens-paper__label">焼き付け</span>
+        <span class="lens-paper__size" id="lensPaperSize">76px</span>
+      </div>
+      <div class="lens-paper__sheet" id="lensPaperSheet" aria-live="polite"></div>
+    </aside>
+
+    <div class="lens-controls" id="lensControls">
+      <label class="lens-controls__label" for="lensSize">
+        <span>レンズサイズ</span>
+        <input type="range" class="lens-controls__range" id="lensSize" min="44" max="160" value="76" step="2" />
+        <output class="lens-controls__value" id="lensSizeValue" for="lensSize">76</output>
+      </label>
+    </div>
+
+    <div class="lens-compose" id="lensCompose">
+      <button type="button" class="lens-clear" id="lensClear">クリア</button>
+      <p class="lens-compose__label">入力</p>
+      <div class="lens-compose__track">
+        <span class="lens-compose__placeholder" id="lensPlaceholder">ひらがな・カタカナ・数字を打つ…</span>
+        <div class="lens-compose__text" id="lensOutput" aria-live="polite"></div>
+        <span class="lens-compose__caret" id="lensCaret" aria-hidden="true"></span>
+      </div>
+      <textarea
+        class="lens-input"
+        id="lensInput"
+        spellcheck="false"
+        rows="1"
+        aria-label="文字入力"
+      ></textarea>
+    </div>
+  </main>
+
+  <script src="../js/lens-field.js"></script>
+</body>
+</html>
