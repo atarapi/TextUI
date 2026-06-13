@@ -10,6 +10,40 @@ python3 -m http.server 8080
 
 http://localhost:8080 にアクセス。
 
+## GitHub Pages で公開する
+
+1. GitHub にログイン（初回のみ）
+
+```bash
+gh auth login
+```
+
+2. リポジトリを作成して push
+
+```bash
+cd /Users/s26739/Documents/TextUI
+gh repo create TextUI --public --source=. --remote=origin --push
+```
+
+リポジトリ名を変えたい場合は `TextUI` の部分を変更してください。
+
+3. GitHub Pages を有効化
+
+```bash
+gh api repos/$(gh api user -q .login)/TextUI/pages -X POST \
+  -f build_type=legacy \
+  -f 'source[branch]=main' \
+  -f 'source[path]=/'
+```
+
+4. 公開 URL（数分後に有効）
+
+```
+https://<あなたのGitHubユーザー名>.github.io/TextUI/
+```
+
+例: `https://octocat.github.io/TextUI/`
+
 ## フィールド一覧
 
 | カード | 説明 |
