@@ -1,56 +1,59 @@
 # TextUI
 
-面白いテキストフィールドの実験集。トップページのカードから、それぞれの入力体験を開けます。
+**TextUI** は、テキストフィールドの入力体験を試すための実験プロジェクトです。  
+「文字を打つ」という当たり前の操作を、見た目や動きで少し変えてみたものを集めています。
 
-## 起動方法
+トップページのカードから、それぞれのフィールドを開いて試せます。
+
+---
+
+## フィールド一覧
+
+### Runaway Field
+
+打った文字が、それぞれ独立したキャラクターとして動き出します。
+
+- 文字ごとにランダムなタイミングで足が生える
+- 足が伸びきると、上下左右へ逃げ回る
+- **整列** … 元の打った位置へ歩いて戻る
+- **解散** … 整列後、再びバラバラに動き出す
+- **戦う** … 金槌を持って文字同士が戦い、最後の1文字が勝ち残る
+
+入力欄の文字は見えず、DOM 上のキャラクターとして表示されます。カスタムキャレットで「次に打つ位置」を示します。
+
+### Stroke Field
+
+文字の「区画数」に応じて、縦方向の動きが変わります。
+
+- 区画の少ない文字（例: 一・木）はふわふわと浮く
+- 区画の多い文字（例: 森・鬱）は傾きながら沈む
+- 文字にホバーすると区画数を表示
+
+区画データに基づいて、各文字の浮力・重力を個別に制御しています。
+
+---
+
+## 使い方
+
+ブラウザで `index.html` を開くか、ローカルサーバーを起動してアクセスしてください。
 
 ```bash
 python3 -m http.server 8080
 ```
 
-http://localhost:8080 にアクセス。
+http://localhost:8080
 
-## GitHub Pages で公開する
+---
 
-1. GitHub にログイン（初回のみ）
+## 技術
 
-```bash
-gh auth login
-```
+- HTML / CSS / JavaScript（フレームワークなし）
+- フォント: Noto Sans JP, IBM Plex Mono
+- Runaway Field: DOM ベースのアニメーション + `requestAnimationFrame`
+- Stroke Field: 区画数データ + CSS アニメーション
 
-2. リポジトリを作成して push
+---
 
-```bash
-cd /Users/s26739/Documents/TextUI
-gh repo create TextUI --public --source=. --remote=origin --push
-```
+## ライセンス
 
-リポジトリ名を変えたい場合は `TextUI` の部分を変更してください。
-
-3. GitHub Pages を有効化
-
-```bash
-gh api repos/$(gh api user -q .login)/TextUI/pages -X POST \
-  -f build_type=legacy \
-  -f 'source[branch]=main' \
-  -f 'source[path]=/'
-```
-
-4. 公開 URL（数分後に有効）
-
-```
-https://<あなたのGitHubユーザー名>.github.io/TextUI/
-```
-
-例: `https://octocat.github.io/TextUI/`
-
-## フィールド一覧
-
-| カード | 説明 |
-|--------|------|
-| **Runaway Field** | 打った文字に足が生えて逃げ回る |
-| **Stroke Field** | 区画の多い文字は傾きながら沈み、少ない文字はふわふわと浮く |
-
-## 新しいフィールドの追加
-
-`js/gallery.js` の `FIELDS` 配列にエントリを追加し、`fields/` に HTML を置くだけです。
+このプロジェクトは実験・公開用です。自由に閲覧・試用してください。
